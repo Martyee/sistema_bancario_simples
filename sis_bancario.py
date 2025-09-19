@@ -17,6 +17,12 @@ MENSAGENS = {
 def formatar_moeda(valor):
     return f"R$ {valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
+def bloqueia_limite(dia, transa):
+    global LIMITE_DIARIO
+    if transa == LIMITE_TRANS:
+        dia_block = dia
+        LIMITE_DIARIO = True
+
 # Função para limpeza de tela
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
